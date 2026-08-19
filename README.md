@@ -62,3 +62,17 @@ SmartStock/
 │
 ├── .gitignore
 └── README.md
+
+## 📸 Screenshots
+
+### Dashboard
+![SmartStock Dashboard](screenshots/Dashboard.png)
+
+### Products
+![SmartStock Products](screenshots/Products.png)
+
+### Sales
+![SmartStock Sales](screenshots/Sales.png)
+
+### Login
+![SmartStock Login](screenshots/Login.png)
