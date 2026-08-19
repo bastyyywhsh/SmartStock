@@ -86,7 +86,7 @@ app.post("/api/auth/register", async (req, res) => {
       });
     }
 
-    const userRole = role === "admin" ? "admin" : "staff";
+    const userRole = "staff";
 
     const hashedPassword = await bcrypt.hash(password, 10);
 

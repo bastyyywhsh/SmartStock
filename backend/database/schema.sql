@@ -1,0 +1,29 @@
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(100) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  role VARCHAR(20) DEFAULT 'staff'
+);
+
+CREATE TABLE IF NOT EXISTS products (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(150) NOT NULL,
+  category VARCHAR(100) NOT NULL,
+  price NUMERIC(10, 2) NOT NULL CHECK (price >= 0),
+  stock INTEGER NOT NULL DEFAULT 0 CHECK (stock >= 0)
+);
+
+CREATE TABLE IF NOT EXISTS customers (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(150) NOT NULL,
+  email VARCHAR(150),
+  phone VARCHAR(50)
+);
+
+CREATE TABLE IF NOT EXISTS sales (
+  id SERIAL PRIMARY KEY,
+  product_id INTEGER NOT NULL REFERENCES products(id) ON DELETE RESTRICT,
+  quantity_sold INTEGER NOT NULL CHECK (quantity_sold > 0),
+  total_price NUMERIC(10, 2) NOT NULL CHECK (total_price >= 0),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
